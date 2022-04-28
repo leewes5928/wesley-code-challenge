@@ -4,6 +4,7 @@ const path = require("path");
 
 const app = express();
 
+app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 app.get("/api/users", async (req, res) => {
@@ -18,10 +19,10 @@ app.get("/api/users", async (req, res) => {
 
 app.post("/api/users", async (req, res) => {
     try {
-        const user = await db.select().table('users').insert( req.body.user );
+        const user = await db.table('users').insert( req.body ).returning("*");
         res.status(200).json({ success: true, data: user });
     } catch (err) {
-        console.err("Error posting user.", err);
+        console.error("Error posting user.", err);
         res.status(400).json({ success: false });
     }
 });
