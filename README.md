@@ -34,11 +34,15 @@ Clone this respository
 ```bash
 $ git clone https://github.com/leewes5928/wesley-code-challenge.git
 ```
-Install all dependencies using yarn
+Switch branches to challenge-react
+```bash
+$ git switch challenge-react
+```
+Install all dependencies using npm
 ```bash
 $ npm install
 ```
-Create a .env.local file within the root directory
+Create an .env file within the root directory
 ```bash
 $ touch .env
 ```
@@ -65,7 +69,7 @@ To run a local development server on localhost:3000 (by default)
 $ npm run dev
 ```
 
-To run a local backend server on localhost:9000 (by default or add a PORT to .env)
+To run a local backend server on localhost:9000 (by default)
 ```bash
 $ npm start
 ```
