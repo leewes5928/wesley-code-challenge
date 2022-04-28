@@ -15,8 +15,12 @@ export default function SubmitImage({ uid, imageSetter }) {
     reader.readAsBinaryString(image);
     reader.onload = async function() {
         let imageString = btoa(reader.result);
-        let response = await axios.patch(`/api/users/${uid}`, { img: imageString });
-        imageSetter(response.data.data[0].img);
+        try {
+            let response = await axios.patch(`/api/users/${uid}`, { img: imageString });
+            imageSetter(response.data.data[0].img);
+        } catch (err) {
+            console.error(err);
+        };
     };
   };
 

@@ -6,12 +6,16 @@ import SubmitName from "./components/SubmitName";
 
 function App() {
   useEffect(() => {
-    (async function fetchUser() {
-      const {
-        data: { data: user },
-      } = await axios.get("/api/users");
-      setUser(user[0]);
-    })();
+    try {
+      (async function fetchUser() {
+        const {
+          data: { data: user },
+        } = await axios.get("/api/users");
+        setUser(user[0]);
+      })();
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   let [user, setUser] = useState({});
