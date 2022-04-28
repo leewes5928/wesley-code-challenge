@@ -30,10 +30,10 @@ app.post("/api/users", async (req, res) => {
 app.patch("/api/users/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const patchUser = await db.table( 'users' ).where({ id }).update( req.body ).returning( "*" );
+        const patchUser = await db( 'users' ).where({ user_id: id }).update( req.body ).returning( "*" );
         res.status(200).json({ success: true, data: patchUser });
     } catch (err) {
-        consoleerror("Error patching user.", err);
+        console.error("Error patching user.", err);
         res.status(400).json({ success: false });
     }
 });
