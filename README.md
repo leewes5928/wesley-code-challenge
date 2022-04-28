@@ -20,7 +20,65 @@ and the storage mechanism are up to you. It's ok if it takes no params and retur
 
 
 
+## Getting Started
 
+These instructions will get you a copy of the project running locally for development and testing purposes.
+
+### Requirements
+- PostgreSQL
+- Git
+- Node.js
+
+## Installation
+Clone this respository
+```bash
+$ git clone https://github.com/leewes5928/wesley-code-challenge.git
+```
+Install all dependencies using yarn
+```bash
+$ npm install
+```
+Create a .env.local file within the root directory
+```bash
+$ touch .env
+```
+Create a postgreSQL database locally
+```bash
+$ createdb <Database Name>
+```
+Create a users table under the newly created database
+```
+$ CREATE TABLE users (user_id serial PRIMARY KEY, name varchar NOT NULL, img varchar);
+```
+### Environmental Variables
+Set environmental variables in the .env file for the settings of the PostgreSQL database
+```
+DB_USER = <PostgreSQL Username>
+DB_PW = <PostgreSQL Password>
+DB_NAME = <PostgreSQL Name of Database>
+```
+## Scripts
+Within the package.json file there are scripts to help build and run the project locally
+
+To run a local development server on localhost:3000 (by default)
+```bash
+$ npm run dev
+```
+
+To run a local backend server on localhost:9000 (by default or add a PORT to .env)
+```bash
+$ npm start
+```
+
+To create build files for deployment
+```bash
+$ npm run build
+```
+
+To serve static files locally
+```bash
+$ npm run serve
+```
 
 
 
