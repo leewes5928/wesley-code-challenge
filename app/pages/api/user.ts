@@ -13,7 +13,7 @@ class apiResponse {
 }
 
 
-export default async (req, res) => {
+export default async function user(req, res) {
   const { method } = req;
   const { db } = await connectDatabase();
   
