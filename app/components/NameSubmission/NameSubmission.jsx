@@ -5,7 +5,7 @@ export default function NameSubmission({ handleName, endpoint }) {
   let nameRef = createRef();
 
   async function handleClick() {
-    await axios.put(endpoint, {name: nameRef.current.value});
+    //await axios.put(endpoint, {name: nameRef.current.value});
     handleName(nameRef.current.value);
   }
 

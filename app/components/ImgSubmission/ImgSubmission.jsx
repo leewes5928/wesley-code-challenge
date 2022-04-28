@@ -13,7 +13,7 @@ export default function ImgSubmission({ handleImg, endpoint }) {
 
   async function handleUpload(e) {
     let imgString = convertImgToString(e.target.value);
-    let response = await axios.put(endpoint, {userImg: imgString});
+    //let response = await axios.put(endpoint, {userImg: imgString});
     handleImg(`data${response.data.img}`)
   }
     return (
