@@ -6,15 +6,12 @@ const PORT = process.env.port || 9000;
 
 (async () => {
     try {
-        console.log("Running migrations.");
-        await db.migrate.latest();
-
-        console.log("Starting express.");
+        console.log("Starting express server.");
         app.listen(PORT, () => {
             console.log(`App listening on port ${PORT}.`);
         });
     } catch (err) {
-        console.error("Error starting database.", err);
+        console.error("Error starting express server.", err);
         process.exit(-1);
     }
 })();
