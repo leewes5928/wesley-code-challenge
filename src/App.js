@@ -14,12 +14,20 @@ function App() {
 
   let [user, setUser] = useState({});
 
+  function setImg(image) {
+    setUser({...user, img: image});
+  };
+
+  function setName(name) {
+    setUser({...user, name: name});
+  };
+  
   return (
     <div className="App">
       {user.name}
       <img src={`data:image/png;base64,${user.img}`} alt="Avatar"></img>
-      <SubmitImage userSetter={setUser} />
-      <SubmitName userSetter={setUser} />
+      <SubmitImage uid={user.user_id} imageSetter={setImg} />
+      <SubmitName uid={user.user_id} nameSetter={setName} />
     </div>
   );
 };
